@@ -1,0 +1,30 @@
+import sys
+binary = "1110001"
+def OneCounter(binary):
+	last = False
+	streak = 0
+	streaks = []
+	output = 0
+	for i in range(len(binary)):
+		if binary[i] == "1" and last == True:
+			streak+=1
+		elif binary[i] == "1":
+			streak+=1
+			last = True
+		else:
+			last = False
+			if streak != 0:
+				streaks.append(streak)
+			streak = 0
+	streaks.append(streak)
+	
+	for i in streaks:
+		output+=(i *(i+1)) / 2
+		print("streaks=",i,"    output=",int(output))
+	
+	return int(output)
+
+OneCounter(binary)
+
+
+
